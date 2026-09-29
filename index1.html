@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #05010b;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.title-font {
+    font-family: "Cinzel", serif;
+}
+
+/* BACKGROUND */
+
+.background-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+
+    background:
+        radial-gradient(circle at 20% 20%,
+        rgba(255,0,128,.18),
+        transparent 30%),
+
+        radial-gradient(circle at 80% 30%,
+        rgba(120,0,255,.18),
+        transparent 30%),
+
+        radial-gradient(circle at 50% 90%,
+        rgba(255,0,90,.12),
+        transparent 35%);
+}
+
+/* STARS */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        radial-gradient(#fff 1px,transparent 1px);
+
+    background-size: 55px 55px;
+
+    opacity: .15;
+
+    animation: starsMove 20s linear infinite;
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(55px);
+    }
+
+}
+
+/* HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+
+    color: #ff4d9d;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    animation: floatHeart linear forwards;
+
+    filter: drop-shadow(0 0 8px #ff1685);
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.4)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* HERO */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px 15px;
+}
+
+.hero-content {
+
+    width: 100%;
+
+    max-width: 900px;
+}
+
+.glow-title {
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #ff198b,
+        0 0 25px #ff198b,
+        0 0 50px #9d00ff;
+}
+
+/* BUTTON */
+
+.neon-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1685,
+            #8b00ff
+        );
+
+    color: white;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255,22,133,.5),
+        0 0 35px rgba(139,0,255,.3);
+
+    transition: .3s;
+}
+
+.neon-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+}
+
+/* GLASS */
+
+.glass {
+
+    width: 100%;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.3),
+        inset 0 0 20px rgba(255,255,255,.02);
+}
+
+/* MAIN PHOTO */
+
+.photo-wrapper {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+}
+
+.main-photo {
+
+    display: block;
+
+    width: 270px;
+
+    height: 270px;
+
+    max-width: 75vw;
+
+    max-height: 75vw;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 50%;
+
+    border:
+        5px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 0 20px #ff1685,
+        0 0 60px rgba(255,0,128,.4);
+
+    animation:
+        photoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes photoGlow {
+
+    from {
+
+        box-shadow:
+            0 0 15px #ff1685,
+            0 0 35px rgba(255,0,128,.3);
+
+    }
+
+    to {
+
+        box-shadow:
+            0 0 30px #ff1685,
+            0 0 80px rgba(150,0,255,.5);
+
+    }
+
+}
+
+/* GALLERY */
+
+.gallery img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+.gallery img:hover {
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 30px rgba(255,20,140,.5);
+}
+
+/* MUSIC */
+
+.music-button {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1685,
+            #8000ff
+        );
+
+    box-shadow:
+        0 0 25px rgba(255,0,130,.6);
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.music-button:hover {
+
+    transform: scale(1.1);
+}
+
+/* SURPRISE */
+
+#surprise {
+
+    display: none;
+}
+
+.surprise-text {
+
+    color: #ff8ac5;
+
+    text-shadow:
+        0 0 15px #ff1685;
+}
+
+/* SCROLL */
+
+.scroll-down {
+
+    animation:
+        bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width:640px) {
+
+    .hero h1 {
+
+        font-size: 40px !important;
+
+        line-height: 1.2;
+    }
+
+    #name {
+
+        font-size: 30px !important;
+    }
+
+    .main-photo {
+
+        width: 210px;
+
+        height: 210px;
+
+        max-width: 75vw;
+
+        max-height: 75vw;
+    }
+
+    .gallery img {
+
+        height: 220px;
+    }
+
+    .neon-button {
+
+        padding:
+            13px 18px;
+
+        font-size: 14px;
+    }
+
+}
+
+/* VERY SMALL PHONE */
+
+@media (max-width:380px) {
+
+    .hero h1 {
+
+        font-size: 34px !important;
+    }
+
+    #name {
+
+        font-size: 26px !important;
+    }
+
+    .main-photo {
+
+        width: 180px;
+
+        height: 180px;
+    }
+
+    .gallery img {
+
+        height: 200px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="stars"></div>
+
+<!-- MUSIC -->
+
+<audio id="birthdayMusic" loop>
+
+```
+<source src="./audio.mp3"
+        type="audio/mpeg">
+```
+
+</audio>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+```
+<div class="text-pink-400 text-5xl mb-6">
+
+    ❤️
+
+</div>
+
+<p class="uppercase tracking-[4px] sm:tracking-[8px] text-gray-400 text-sm mb-5">
+
+    A Special Day For Someone Special
+
+</p>
+
+<h1 class="title-font glow-title text-5xl md:text-7xl font-bold mb-6">
+
+    Happy Birthday
+
+</h1>
+
+<h2 id="name"
+    class="title-font text-3xl md:text-5xl text-pink-300 mb-8">
+
+    MUUU💕💕
+
+</h2>
+
+<p class="text-gray-300 max-w-2xl mx-auto text-lg leading-8 mb-10">
+
+    Today isn't just another day.
+
+    It's the day someone incredibly special came into this world.
+
+</p>
+
+<a href="#message"
+   class="neon-button">
+
+    <i class="fa-solid fa-heart"></i>
+
+    Open Your Birthday Wish
+
+</a>
+
+<div class="mt-16 scroll-down text-gray-400">
+
+    <i class="fa-solid fa-chevron-down"></i>
+
+</div>
+```
+
+</div>
+
+</section>
+
+<!-- MESSAGE -->
+
+<section id="message"
+class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+
+<div class="glass p-5 sm:p-8 md:p-12 text-center">
+
+```
+<div class="photo-wrapper">
+
+    <img src="sakin.jpeg"
+         alt="Birthday Photo"
+         class="main-photo"
+         loading="eager"
+         onerror="showImageError(this)">
+
+</div>
+
+<div id="photoError"
+     style="display:none"
+     class="text-pink-300 mb-8">
+
+    ❤️ Photo could not be loaded.<br>
+
+    Please check that
+    <b>sakin4.jpg</b>
+    is in the same folder as index.html.
+
+</div>
+
+<div class="text-pink-400 text-3xl mb-5">
+
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+</div>
+
+<h2 class="title-font text-3xl md:text-4xl mb-8">
+
+    A Little Message For You
+
+</h2>
+
+<p class="text-gray-300 leading-8 max-w-3xl mx-auto">
+
+    On your special day, I just want you to know how much
+    happiness you bring into the lives of the people around you.
+
+    Your smile, your kindness, your little jokes and even your
+    silly moments make life a little more beautiful.
+
+    <br><br>
+
+    I hope this new chapter brings you everything you've ever
+    wished for — happiness, success, peace, love and countless
+    beautiful memories.
+
+    <br><br>
+
+    Keep smiling, keep shining and never stop being the amazing
+    person you are.
+
+</p>
+```
+
+</div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section class="max-w-3xl mx-auto px-5 py-16 text-center">
+
+<div class="glass p-8 sm:p-10">
+
+```
+<div class="text-pink-400 text-3xl mb-5">
+
+    <i class="fa-solid fa-music"></i>
+
+</div>
+
+<h2 class="title-font text-3xl mb-3">
+
+    Little Song 🎵
+
+</h2>
+
+<p class="text-gray-400 mb-8">
+
+    Press play and enjoy the moment.
+
+</p>
+
+<div id="musicButton"
+     class="music-button">
+
+    <i id="musicIcon"
+       class="fa-solid fa-play text-xl"></i>
+
+</div>
+
+<p id="musicStatus"
+   class="text-gray-500 text-sm mt-5">
+
+    Music is paused
+
+</p>
+```
+
+</div>
+
+</section>
+
+<!-- MEMORIES -->
+
+<section
+class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+
+<div class="text-center mb-12">
+
+```
+<p class="text-pink-400 uppercase tracking-[5px] text-sm mb-3">
+
+    Memories
+
+</p>
+
+<h2 class="title-font text-4xl md:text-5xl">
+
+    Beautiful Moments 📸
+
+</h2>
+
+<p class="text-gray-400 mt-4">
+
+    A few memories worth keeping forever.
+
+</p>
+```
+
+</div>
+
+<div class="gallery grid grid-cols-1 md:grid-cols-2 gap-6">
+
+```
+<img src="sakin1.jpeg"
+     alt="Memory 1"
+     loading="lazy">
+
+<img src="sakin2.jpeg"
+     alt="Memory 2"
+     loading="lazy">
+
+<img src="sakin3.jpeg"
+     alt="Memory 3"
+     loading="lazy">
+
+<img src="sakin4.jpeg"
+     alt="Memory 4"
+     loading="lazy">
+```
+
+</div>
+
+</section>
+
+<!-- SURPRISE -->
+
+<section
+class="max-w-4xl mx-auto px-5 py-16 sm:py-24 text-center">
+
+<div class="glass p-8 sm:p-10 md:p-16">
+
+```
+<div class="text-6xl mb-8">
+
+    🎁
+
+</div>
+
+<h2 class="title-font text-3xl md:text-4xl mb-6">
+
+    One Last Surprise
+
+</h2>
+
+<p class="text-gray-400 mb-8">
+
+    There's something waiting for you...
+
+</p>
+
+<button id="surpriseButton"
+        class="neon-button border-0">
+
+    <i class="fa-solid fa-gift"></i>
+
+    Open Your Surprise
+
+</button>
+
+
+<div id="surprise"
+     class="mt-10">
+
+    <div class="text-6xl mb-6">
+
+        💖
+
+    </div>
+
+    <h3 class="title-font text-3xl md:text-4xl surprise-text mb-6">
+
+        Thangoow 🥺
+
+Happy Birthday ammu ❤️‍🩹
+    </h3>
+
+    <p class="text-gray-300 leading-8 max-w-2xl mx-auto">
+
+        Happy Birthday once again MUUU💕💕 🎂
+          
+        Thangoow 🥺
+
+Nee yapovum Happy ya erukanum than muu aaasa aana naa una yathavathue solii kasta paduthe an muuu enii Apidi panama eruka try panuran muuu 
+ Thangoow nee entha birthday va nalla happy ya enjoy panue muuu 
+Next year maybe yatha they better aa panalam muu 
+Nee yathukum feel panatha muu nee sonathue elam ore nalla nadakum Athue Unaka next birthday va kuda erukalam muu so nee next year unake pudicha mathrii panaln muuu Enaikue nee Nalla happy ya erue muu Athue pothue muuu 
+Happy birthday Thangoow 💕💖
+ Love you ammu 🫴🏻🫀
+
+        <br>
+
+        May your smile always be brighter than the stars. ✨
+
+    </p>
+
+    <div class="text-4xl mt-8">
+
+        ❤️ 🥰 🎂 🎉 💖
+
+    </div>
+
+</div>
+```
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="text-center py-12 text-gray-500">
+
+<p>
+
+```
+Made with
+<span class="text-pink-500">❤️</span>
+especially for you
+```
+
+</p>
+
+<p class="text-xs mt-3">
+
+```
+Happy Birthday 🎂
+```
+
+</p>
+
+</footer>
+
+<script>
+
+/* =========================
+   IMAGE ERROR
+========================= */
+
+function showImageError(image) {
+
+    image.style.display = "none";
+
+    document.getElementById("photoError")
+        .style.display = "block";
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+
+        heart.remove();
+
+    },12000);
+}
+
+setInterval(createHeart,700);
+
+
+/* =========================
+   GSAP
+========================= */
+
+if (typeof gsap !== "undefined") {
+
+    gsap.from(".hero-content",{
+
+        opacity:0,
+
+        y:60,
+
+        duration:1.5,
+
+        ease:"power3.out"
+
+    });
+
+    gsap.from(".main-photo",{
+
+        opacity:0,
+
+        scale:.5,
+
+        duration:1.5,
+
+        delay:.5,
+
+        ease:"back.out(1.7)"
+
+    });
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const music =
+document.getElementById("birthdayMusic");
+
+const musicButton =
+document.getElementById("musicButton");
+
+const musicIcon =
+document.getElementById("musicIcon");
+
+const musicStatus =
+document.getElementById("musicStatus");
+
+
+musicButton.addEventListener(
+"click",
+async function(){
+
+    if(music.paused){
+
+        try{
+
+            await music.play();
+
+            musicIcon.className =
+                "fa-solid fa-pause text-xl";
+
+            musicStatus.textContent =
+                "♪ Now playing...";
+
+        }
+
+        catch(error){
+
+            musicStatus.textContent =
+                "Please check audio.mp3";
+
+        }
+
+    }
+
+    else{
+
+        music.pause();
+
+        musicIcon.className =
+            "fa-solid fa-play text-xl";
+
+        musicStatus.textContent =
+            "Music is paused";
+
+    }
+
+});
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+const surpriseButton =
+document.getElementById("surpriseButton");
+
+const surprise =
+document.getElementById("surprise");
+
+
+surpriseButton.addEventListener(
+"click",
+function(){
+
+    surprise.style.display =
+        "block";
+
+    surpriseButton.style.display =
+        "none";
+
+    if(typeof gsap !== "undefined"){
+
+        gsap.from("#surprise",{
+
+            opacity:0,
+
+            scale:.5,
+
+            y:40,
+
+            duration:1.2,
+
+            ease:"back.out(1.7)"
+
+        });
+
+    }
+
+    for(let i=0;i<30;i++){
+
+        setTimeout(
+            createHeart,
+            i*80
+        );
+
+    }
+
+});
+
+
+/* =========================
+   GALLERY
+========================= */
+
+document
+.querySelectorAll(".gallery img")
+.forEach(function(img){
+
+    img.addEventListener(
+        "click",
+        function(){
+
+            if(typeof gsap !== "undefined"){
+
+                gsap.to(this,{
+
+                    scale:1.05,
+
+                    duration:.2,
+
+                    yoyo:true,
+
+                    repeat:1
+
+                });
+
+            }
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
